@@ -1,0 +1,8 @@
+class Solution:
+    def increasingTriplet(self, nums: List[int]) -> bool:
+        if len(set(nums))<3: return False
+        for i in range(len(nums)):
+            for j in range(i, len(nums)):
+                if nums[j]>nums[i] and max(nums[j:])>nums[j]:
+                    return True
+        return False

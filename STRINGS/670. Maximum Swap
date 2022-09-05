@@ -1,0 +1,11 @@
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+        n = [int(x) for x in list(str(num))]
+        m=[]
+        for i in range(len(n)):
+            if max(n[i:])!=n[i]:
+                t = n[i:][::-1]
+                ind = len(t) - t.index(max(t)) -1
+                n[i], n[i+ind] = n[i+ind], n[i]
+                return ''.join([str(x) for x in n])
+        return num
